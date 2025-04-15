@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js'
 
-// Replace these values with your actual Supabase credentials from your project settings
-const supabaseUrl = 'https://your-project-id.supabase.co'
-const supabaseKey = 'your-anon-key'
+// Замените эти значения на ваши реальные credentials из Supabase
+const supabaseUrl = 'ВАІҢ_SUPABASE_URL'  // Например: https://ваш-проект.supabase.co
+const supabaseKey = 'ВАІҢ_SUPABASE_ANON_KEY'  // Анонимный ключ из настроек API
 
 // Validate URL before creating client
 const isValidUrl = (url: string) => {
