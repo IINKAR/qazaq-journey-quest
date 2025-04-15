@@ -1,39 +1,15 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { ChevronRight } from "lucide-react";
-
-const destinations = [
-  {
-    id: 1,
-    name: "Шарын шатқалы",
-    location: "Алматы облысы",
-    image: "https://images.unsplash.com/photo-1615204319459-6814883cc3e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    description: "Қамалдар алқабы керемет тау жыныстарымен ерекшеленеді, көбінесе Аризонаның Ұлы каньонымен салыстырылады.",
-  },
-  {
-    id: 2,
-    name: "Қайыңды көлі",
-    location: "Алматы облысы",
-    image: "https://images.unsplash.com/photo-1614156992639-d6694788673d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    description: "Табиғи көшкіннен пайда болған бөгеттің арқасында түзілген көгілдір түсті суы бар ғажайып батқан орман.",
-  },
-  {
-    id: 3,
-    name: "Көлсай көлдері",
-    location: "Алматы облысы",
-    image: "https://images.unsplash.com/photo-1614156975343-38060e59a5c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    description: "Солтүстік Тянь-Шаньның қарағай ормандары мен тауларының арасында орналасқан үш альпілік көл.",
-  },
-  {
-    id: 4,
-    name: "Нұр-Сұлтан",
-    location: "Ақмола облысы",
-    image: "https://images.unsplash.com/photo-1540162416395-16f3b1db9282?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80",
-    description: "Бәйтерек мұнарасы мен Нұр Әлем сияқты белгілі ғимараттары бар заманауи сәулет өнерімен ерекшеленетін астана қаласы.",
-  },
-];
+import { useQuery } from "@tanstack/react-query";
+import { getDestinations, type Destination } from "@/lib/supabase";
 
 export function FeaturedDestinations() {
+  const { data: destinations = [], isLoading } = useQuery({
+    queryKey: ['destinations'],
+    queryFn: getDestinations
+  });
+
   return (
     <section id="featured-destinations" className="py-16 md:py-24 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -54,11 +30,11 @@ export function FeaturedDestinations() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {destinations.map((destination) => (
+          {destinations.map((destination: Destination) => (
             <Card key={destination.id} className="destination-card group">
               <div className="h-64 overflow-hidden">
                 <img
-                  src={destination.image}
+                  src={destination.image_url}
                   alt={destination.name}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />

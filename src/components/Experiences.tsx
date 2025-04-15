@@ -1,36 +1,15 @@
 
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
-
-// Sample experiences data
-const experiences = [
-  {
-    id: 1,
-    title: "Nomadic Yurt Stay",
-    description: "Experience traditional Kazakh hospitality in an authentic yurt on the vast steppe. Enjoy local food, music, and horseback riding.",
-    image: "https://images.unsplash.com/photo-1591621709420-3e1301186151?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    duration: "2 days",
-    price: "$120",
-  },
-  {
-    id: 2,
-    title: "Eagle Hunting Experience",
-    description: "Witness the ancient tradition of hunting with golden eagles and learn about Kazakh nomadic culture from eagle hunters.",
-    image: "https://images.unsplash.com/photo-1614156992137-4d2d9fd6bd9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    duration: "1 day",
-    price: "$85",
-  },
-  {
-    id: 3,
-    title: "Silk Road Heritage Tour",
-    description: "Follow the ancient Silk Road through Kazakhstan visiting historical sites, mausoleums, and ancient cities.",
-    image: "https://images.unsplash.com/photo-1594818379496-da1e345bf9e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80",
-    duration: "5 days",
-    price: "$495",
-  },
-];
+import { useQuery } from "@tanstack/react-query";
+import { getExperiences, type Experience } from "@/lib/supabase";
 
 export function Experiences() {
+  const { data: experiences = [], isLoading } = useQuery({
+    queryKey: ['experiences'],
+    queryFn: getExperiences
+  });
+
   return (
     <section className="py-16 md:py-24">
       <div className="container mx-auto px-4">
@@ -51,11 +30,11 @@ export function Experiences() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {experiences.map((experience) => (
+          {experiences.map((experience: Experience) => (
             <div key={experience.id} className="experience-card">
               <div className="h-56 overflow-hidden">
                 <img
-                  src={experience.image}
+                  src={experience.image_url}
                   alt={experience.title}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
@@ -63,7 +42,7 @@ export function Experiences() {
               <div className="p-6">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-xl font-semibold text-kazakh-night">{experience.title}</h3>
-                  <div className="text-kazakh-blue font-semibold">{experience.price}</div>
+                  <div className="text-kazakh-blue font-semibold">${experience.price}</div>
                 </div>
                 <p className="text-gray-600 mb-4">{experience.description}</p>
                 <div className="flex justify-between items-center">
