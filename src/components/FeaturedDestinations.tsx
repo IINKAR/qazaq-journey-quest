@@ -2,35 +2,34 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { ChevronRight } from "lucide-react";
 
-// Sample destination data
 const destinations = [
   {
     id: 1,
-    name: "Charyn Canyon",
-    location: "Almaty Region",
+    name: "Шарын шатқалы",
+    location: "Алматы облысы",
     image: "https://images.unsplash.com/photo-1615204319459-6814883cc3e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    description: "The Valley of Castles features incredible rock formations, often compared to Arizona's Grand Canyon.",
+    description: "Қамалдар алқабы керемет тау жыныстарымен ерекшеленеді, көбінесе Аризонаның Ұлы каньонымен салыстырылады.",
   },
   {
     id: 2,
-    name: "Lake Kaindy",
-    location: "Almaty Region",
+    name: "Қайыңды көлі",
+    location: "Алматы облысы",
     image: "https://images.unsplash.com/photo-1614156992639-d6694788673d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    description: "A surreal sunken forest with vibrant turquoise waters created by a natural landslide dam.",
+    description: "Табиғи көшкіннен пайда болған бөгеттің арқасында түзілген көгілдір түсті суы бар ғажайып батқан орман.",
   },
   {
     id: 3,
-    name: "Kolsai Lakes",
-    location: "Almaty Region",
+    name: "Көлсай көлдері",
+    location: "Алматы облысы",
     image: "https://images.unsplash.com/photo-1614156975343-38060e59a5c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    description: "A series of three alpine lakes nestled among the pine forests and mountains of the northern Tien Shan.",
+    description: "Солтүстік Тянь-Шаньның қарағай ормандары мен тауларының арасында орналасқан үш альпілік көл.",
   },
   {
     id: 4,
-    name: "Nur-Sultan",
-    location: "Akmola Region",
+    name: "Нұр-Сұлтан",
+    location: "Ақмола облысы",
     image: "https://images.unsplash.com/photo-1540162416395-16f3b1db9282?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80",
-    description: "The capital city featuring futuristic architecture, including the iconic Baiterek Tower and Nur Alem.",
+    description: "Бәйтерек мұнарасы мен Нұр Әлем сияқты белгілі ғимараттары бар заманауи сәулет өнерімен ерекшеленетін астана қаласы.",
   },
 ];
 
@@ -40,16 +39,16 @@ export function FeaturedDestinations() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
           <div>
-            <h2 className="section-title">Featured Destinations</h2>
+            <h2 className="section-title">Танымал бағыттар</h2>
             <p className="text-gray-600 max-w-2xl">
-              From breathtaking natural wonders to vibrant cities, discover Kazakhstan's most iconic destinations that will leave you in awe.
+              Табиғаттың керемет көріністерінен бастап жанды қалаларға дейін, сізді таңғалдыратын Қазақстанның ең танымал бағыттарын ашыңыз.
             </p>
           </div>
           <a 
             href="/destinations" 
             className="mt-4 md:mt-0 flex items-center text-kazakh-blue hover:text-kazakh-night transition-colors font-medium"
           >
-            View all destinations
+            Барлық бағыттарды көру
             <ChevronRight className="h-4 w-4 ml-1" />
           </a>
         </div>
