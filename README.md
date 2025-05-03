@@ -10,7 +10,7 @@ There are several ways of editing your application.
 
 **Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e40bb352-4522-4fc8-8044-c575a5aea2fc) and start prompting.
+Simply visit the [Lovable Project](https://qazaq-journey-quest.vercel.app/) and start prompting.
 
 Changes made via Lovable will be committed automatically to this repo.
 
