@@ -62,7 +62,7 @@ This project is built with .
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/e40bb352-4522-4fc8-8044-c575a5aea2fc) and click on Share -> Publish.
+Simply open [Lovable](https://qazaq-journey-quest.vercel.app/) and click on Share -> Publish.
 
 ## Can I connect a custom domain to my Lovable project?
 
